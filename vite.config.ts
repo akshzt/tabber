@@ -18,6 +18,10 @@ export default defineConfig({
           src: "public/*",
           dest: "public",
         },
+        {
+          src: "src/popup/index.html",
+          dest: "popup",
+        }
       ],
     }),
   ],
@@ -38,19 +42,13 @@ export default defineConfig({
         background: resolve(__dirname, "src/background/background.ts"),
       },
       output: {
-        // For each entry, if chunk.name === 'popup',place it in dist/popup
-        // If chunk.name === 'background', place it in dist/background
-        entryFileNames: (chunk) =>
-          chunk.name === "background"
-            ? "background/background.js"
-            : "popup/[name].js",
-
-        // If there's any CSS extracted, you might also want to place it similarly:
-        chunkFileNames: "[name].js",
-        assetFileNames: () => {
-          // E.g. put CSS in popup/ if it belongs to popup
-          return "[name][extname]";
+        entryFileNames: ({ name }) => {
+          if (name === "background") return "background/background.js";
+          if (name === "popup") return "popup/index.js"; // Ensure popup JS lands correctly
+          return "[name].js";
         },
+        chunkFileNames: "[name].js",
+        assetFileNames: "[name][extname]",
       },
     },
   },
