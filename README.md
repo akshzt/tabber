@@ -76,3 +76,6 @@ Because this is a **Chrome Extension** (MV3), you can’t fully “hot-reload”
 4. **Push** to GitHub (`git push origin my-feature`)  
 5. **Create Pull Request** on the main repo
 
+## License
+
+This project is licensed under the [MIT License](LICENSE). 
