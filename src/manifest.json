@@ -1,7 +1,7 @@
 {
     "name": "Tabber",
     "description": "Manage and restore saved tabs with a beautiful, minimal UI.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "manifest_version": 3,
     "action": {
       "default_popup": "popup/index.html",
